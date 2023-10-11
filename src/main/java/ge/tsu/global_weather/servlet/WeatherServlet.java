@@ -42,7 +42,7 @@ public class WeatherServlet extends HttpServlet {
             return;
         }
 
-        String APIKey = "6720963e6dba4736bea125950231010";
+        String APIKey = System.getenv("Weather_API_KEY");
         String ApiUrl = "https://api.weatherapi.com/v1/current.json?key=" + APIKey + "&q=" + city + "&aqi=no";
         try {
             logger.info("Started Api Fetch, API url: "+ApiUrl);

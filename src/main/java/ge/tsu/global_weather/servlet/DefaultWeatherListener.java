@@ -28,7 +28,7 @@ public class DefaultWeatherListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event) {
         logger.info("ContextInitialized method has been invoked");
 
-        String APIKey = "6720963e6dba4736bea125950231010";
+        String APIKey = System.getenv("Weather_API_KEY");
         String defaultCityName = "tbilisi";
         String ApiUrl = "https://api.weatherapi.com/v1/current.json?key=" + APIKey + "&q=" + defaultCityName + "&aqi=no";
         try {
@@ -66,7 +66,7 @@ public class DefaultWeatherListener implements ServletContextListener {
                 String defaultCity = String.valueOf(jsonObject.getJSONObject("location").get("name"));
                 servletContext.setAttribute("default-city", defaultCity);
 
-               // String lastUpdatedTime = jsonObject.getJSONObject("current").get("last_updated").toString();
+                // String lastUpdatedTime = jsonObject.getJSONObject("current").get("last_updated").toString();
                 servletContext.setAttribute("last-updated-time", getFormattedLastUpdatedTimeOfWeather(jsonObject));
 
                 String humidity = jsonObject.getJSONObject("current").get("humidity").toString();
@@ -135,6 +135,7 @@ public class DefaultWeatherListener implements ServletContextListener {
             e.printStackTrace();
         }
     }
+
     //this method gets jsonObject which is our API, then fetches date and formats it
     public String getFormattedLastUpdatedTimeOfWeather(JSONObject jsonObject) throws ParseException {
         //fetching date and time from api, shows users when was the last update of weather
@@ -149,6 +150,7 @@ public class DefaultWeatherListener implements ServletContextListener {
         //out put will be like that-> 29-09-2023 13:41
         return outputDateFormat.format(date);
     }
+
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
     }
