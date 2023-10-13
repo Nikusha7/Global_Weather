@@ -4,24 +4,6 @@
 <head>
     <title>Weather Hub</title>
     <link rel="stylesheet" href="CSS/styles.css">
-
-<%--    <script>--%>
-<%--        function validateCityName() {--%>
-<%--            var cityNameInput = document.getElementById('city');--%>
-<%--            var cityName = cityNameInput.value.trim(); // Remove leading and trailing spaces--%>
-
-<%--            if (cityName === '') {--%>
-<%--                alert("City name cannot be empty.");--%>
-<%--                return false; // Prevent form submission--%>
-<%--            } else if (cityName.includes(' ')) {--%>
-<%--                alert("City name cannot contain spaces.");--%>
-<%--                return false; // Prevent form submission--%>
-<%--            }--%>
-
-<%--            return true; // Allow form submission--%>
-<%--        }--%>
-<%--    </script>--%>
-
 </head>
 
 <body>
